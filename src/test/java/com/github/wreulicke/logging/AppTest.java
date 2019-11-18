@@ -3,14 +3,17 @@
  */
 package com.github.wreulicke.logging;
 
-import java.time.Duration;
-
-import org.junit.jupiter.api.Test;
-
 import io.micrometer.core.instrument.Timer;
 import io.micrometer.core.instrument.simple.SimpleMeterRegistry;
+import org.junit.jupiter.api.Test;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+
+import java.time.Duration;
 
 public class AppTest {
+
+	private static final Logger logger = LoggerFactory.getLogger(AppTest.class);
 	
 	@Test
 	public void test() {
@@ -22,6 +25,16 @@ public class AppTest {
 			.register(registry);
 		final SomeService service = new SomeService(timer);
 		service.doSomething();
+	}
+
+	@Test
+	public void test2() {
+		String s = "Hello World";
+		try {
+			Integer.parseInt(s);
+		} catch (NumberFormatException e) {
+			logger.error("整数文字列ではありません。", e);
+		}
 	}
 	
 }
