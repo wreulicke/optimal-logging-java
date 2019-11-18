@@ -25,9 +25,6 @@ dependencies {
     compile "net.logstash.logback:logstash-logback-encoder:5.3"
     compile "ch.qos.logback:logback-classic:1.2.3"
 
-    compile "com.google.flogger:flogger:0.4"
-    compile "com.google.flogger:flogger-system-backend:0.4"
-    compile "com.google.flogger:flogger-slf4j-backend:0.4"
     implementation 'org.seasar.doma:doma:2.24.0'
 
     testImplementation('org.junit.jupiter:junit-jupiter:5.4.2')
