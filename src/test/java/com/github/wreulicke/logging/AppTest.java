@@ -28,7 +28,7 @@ public class AppTest {
 	}
 
 	@Test
-	public void test2() {
+	public void 例外を一番後ろに渡してあげるとスタックトレースが表示される() {
 		String s = "Hello World";
 		try {
 			Integer.parseInt(s);
