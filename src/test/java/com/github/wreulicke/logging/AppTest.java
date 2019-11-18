@@ -33,7 +33,7 @@ public class AppTest {
 		try {
 			Integer.parseInt(s);
 		} catch (NumberFormatException e) {
-			logger.error("整数文字列ではありません。", e);
+			logger.error("整数文字列ではありません。入力: {}", s,  e);
 		}
 	}
 	
