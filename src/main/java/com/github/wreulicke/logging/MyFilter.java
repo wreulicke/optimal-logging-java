@@ -20,8 +20,9 @@ public class MyFilter extends OncePerRequestFilter {
   protected void doFilterInternal(HttpServletRequest request, HttpServletResponse response, FilterChain filterChain) throws ServletException, IOException {
     String requestId = UUID.randomUUID().toString();
     MDC.put("RequestId", requestId);
-
     logger.debug("requestId is generated. requestId:{}", requestId);
+
+    response.setHeader("RequestId", requestId);
 
     try {
       filterChain.doFilter(request, response);

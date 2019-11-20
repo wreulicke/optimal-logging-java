@@ -19,10 +19,18 @@ public class ApplicationTest {
   TestRestTemplate testRestTemplate;
 
   @Test
-  public void HTTP経由でテスト() {
+  public void HTTP経由でindex() {
     ResponseEntity<MyResponse> response = testRestTemplate.getForEntity("/api", MyResponse.class);
     assertThat(response.getStatusCode()).isEqualTo(HttpStatus.OK);
-    assertThat(response.getBody().value).isEqualTo("test");
+    assertThat(response.getBody().value).isEqualTo("index");
+  }
+
+
+  @Test
+  public void HTTP経由でpost() {
+    ResponseEntity<MyResponse> response = testRestTemplate.postForEntity("/api", null, MyResponse.class);
+    assertThat(response.getStatusCode()).isEqualTo(HttpStatus.OK);
+    assertThat(response.getBody().value).isEqualTo("post");
   }
 
 }
